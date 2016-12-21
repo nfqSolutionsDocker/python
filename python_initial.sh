@@ -15,7 +15,7 @@ fi
 
 echo Instalando ficheros RPM
 for f in $RPM_PATH/*.rpm; do
-	yum install f
+	rpm -Uvh f
 	mv f f.ok
 done
 
