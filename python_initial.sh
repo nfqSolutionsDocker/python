@@ -16,6 +16,7 @@ fi
 echo Instalando ficheros RPM
 for f in $RPM_PATH/*.rpm; do
 	yum install f
+	mv f f.ok
 done
 
 echo Instalando paquetes en PIP
@@ -23,5 +24,5 @@ for pip_package in $(echo ${PIP_PACKAGES} | sed 's/,/\n/g'); do
 	pip3.4 install ${pip_package}
 done
 
-echo Ejecutando tomcat ...
-catalina.sh ru
+echo Ejecutando bash ...
+/bin/bash
