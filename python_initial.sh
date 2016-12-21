@@ -30,5 +30,10 @@ for pip_zip in ${PIP_PATH}/*.zip; do
 	mv ${pip_zip} ${pip_zip}.ok
 done
 
+echo Ejecutando ficheros python
+for python_file in $(echo ${PYTHON_FILES} | sed 's/,/\n/g'); do
+	python3 ${python_file}
+done
+
 echo Ejecutando bash ...
 /bin/bash

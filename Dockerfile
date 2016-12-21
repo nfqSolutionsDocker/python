@@ -25,7 +25,7 @@ RUN chmod 777 /solutions/python_initial.sh && \
 VOLUME /solutions/app
 
 # Puerto de salida del tomcat
-EXPOSE 8080
+EXPOSE 8888
 
 # Configuracion supervisor
 COPY supervisord.conf /etc/supervisord.conf

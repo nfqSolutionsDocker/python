@@ -14,6 +14,7 @@ Create into volumen '/solutions/app' the 'pip' folder to put the zip files to in
 Important, add in zip files name the numbers order to install.
 
 Add in docker-compose file 'PIP_PACKAGES' variable to install with pip 3.4 in start container.
+Add in docker-compose file 'PYTHON_FILES' variable to execute with python 3.4 in start container.
 
 For example, docker-compose.yml:
 ```
@@ -23,6 +24,9 @@ app:
  environment:
   - PACKAGES=
   - PIP_PACKAGES=
+  - PYTHON_FILES=
+ ports:
+  - "8080:8888"
  volumes:
   - <mydirectory>:/solutions/app
  
