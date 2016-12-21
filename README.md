@@ -8,7 +8,10 @@ This container has the following characteristics:
 - Volumen is /solutions/app.
 
 Create into volumen '/solutions/app' the 'rpm' folder to put the rpm files to install in start container.
-Important, order rpm files by numbers in the name to install
+Important, add in rpm files name the numbers order to install.
+
+Create into volumen '/solutions/app' the 'pip' folder to put the zip files to install in start container.
+Important, add in zip files name the numbers order to install.
 
 Add in docker-compose file 'PIP_PACKAGES' variable to install with pip 3.4 in start container.
 
