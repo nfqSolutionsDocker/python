@@ -3,7 +3,7 @@ FROM nfqsolutions/centos:7
 MAINTAINER solutions@nfq.com
 
 # Instalacion previa
-RUN sudo yum install -y gcc wget python34 python34-pip python34-devel
+RUN sudo yum install -y gcc wget python34 python34-pip python34-devel libaio
 
 # Variables de entorno
 ENV JAVA_HOME=/solutions/app/java \
