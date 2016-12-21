@@ -15,8 +15,8 @@ fi
 
 echo Instalando ficheros RPM
 for f in $RPM_PATH/*.rpm; do
-	rpm -Uvh f
-	mv f f.ok
+	rpm -Uvh $f
+	mv $f $f.ok
 done
 
 echo Instalando paquetes en PIP
