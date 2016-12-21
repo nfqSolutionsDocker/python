@@ -14,7 +14,7 @@ if [ ! -f /solutions/app/java/bin/java ]; then
 fi
 
 echo Instalando ficheros RPM
-for f in $(ls $RPM_PATH/*.rpm | sort -r); do
+for f in $RPM_PATH/*.rpm; do
 	rpm -Uvh $f
 	mv $f $f.ok
 done
