@@ -11,7 +11,8 @@ ENV JAVA_HOME=/solutions/app/java \
 	JAVA_VERSION=7u80 \
 	LD_LIBRARY_PATH=/usr/lib/oracle/11.2/client64/lib \
 	ORACLE_HOME=/usr/lib/oracle/11.2/client64 \
-	RPM_PATH=/solutions/app/rpm
+	RPM_PATH=/solutions/app/rpm \
+	PIP_PATH=/solutions/app/pip
 ENV PATH=$PATH:$JAVA_HOME/bin:$ORACLE_HOME/bin
 
 # Script de arranque

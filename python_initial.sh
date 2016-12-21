@@ -14,14 +14,20 @@ if [ ! -f /solutions/app/java/bin/java ]; then
 fi
 
 echo Instalando ficheros RPM
-for f in $RPM_PATH/*.rpm; do
-	rpm -Uvh $f
-	mv $f $f.ok
+for rpm_file in ${RPM_PATH}/*.rpm; do
+	rpm -Uvh ${rpm_file}
+	mv ${rpm_file} ${rpm_file}.ok
 done
 
-echo Instalando paquetes en PIP
+echo Instalando paquetes oficiales en PIP
 for pip_package in $(echo ${PIP_PACKAGES} | sed 's/,/\n/g'); do
 	pip3.4 install ${pip_package}
+done
+
+echo Instalando paquetes locales en PIP
+for pip_zip in ${PIP_PATH}/*.zip; do
+	pip3.4 install ${pip_zip}
+	mv ${pip_zip} ${pip_zip}.ok
 done
 
 echo Ejecutando bash ...
