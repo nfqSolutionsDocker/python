@@ -18,7 +18,7 @@ ENV PATH=$PATH:$JAVA_HOME/bin:$ORACLE_HOME/bin
 # Modificacion para solutions
 RUN cp /etc/hosts /etc/hosts.new && \
 	sudo sed -i '1s/localhost/dockerhost/' /etc/hosts.new && \
-	cp -f /etc/hosts.new /etc/hosts
+	sudo cp -f /etc/hosts.new /etc/hosts
 	
 # Script de arranque
 COPY python_initial.sh /solutions/
