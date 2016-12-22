@@ -2,6 +2,13 @@
 
 /solutions/install_packages.sh
 
+echo Modificando localhost
+if [ ! -f /etc/hosts.new ]; then
+	cp /etc/hosts /etc/hosts.new
+	sudo sed -i '1s/localhost/dockerhost/' /etc/hosts.new
+	sudo cp -f /etc/hosts.new /etc/hosts
+fi
+
 echo Instalando java ...
 if [ ! -f /solutions/app/java/bin/java ]; then
 	wget -P /solutions/app/ --no-cookies --no-check-certificate --header \
