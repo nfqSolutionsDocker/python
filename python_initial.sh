@@ -16,7 +16,6 @@ fi
 echo Instalando ficheros RPM
 for rpm_file in ${RPM_PATH}/*.rpm; do
 	rpm -Uvh ${rpm_file}
-	mv ${rpm_file} ${rpm_file}.ok
 done
 
 echo Instalando paquetes oficiales en PIP
@@ -27,7 +26,6 @@ done
 echo Instalando paquetes locales en PIP
 for pip_zip in ${PIP_PATH}/*.zip; do
 	pip3.4 install ${pip_zip}
-	mv ${pip_zip} ${pip_zip}.ok
 done
 
 echo Ejecutando ficheros python
