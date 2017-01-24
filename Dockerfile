@@ -3,7 +3,7 @@ FROM nfqsolutions/centos:7
 MAINTAINER solutions@nfq.com
 
 # Instalacion previa
-RUN sudo yum install -y epel
+RUN sudo yum install -y epel-release
 RUN sudo yum install -y gcc wget python34 \
     python34-pip \
     python34-devel \
