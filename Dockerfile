@@ -3,7 +3,18 @@ FROM nfqsolutions/centos:7
 MAINTAINER solutions@nfq.com
 
 # Instalacion previa
-RUN sudo yum install -y gcc wget python34 python34-pip python34-devel libaio
+RUN sudo yum install -y epel
+RUN sudo yum install -y gcc wget python34 \
+    python34-pip \
+    python34-devel \
+    libaio \
+    blas_devel \
+    lapack-devel \
+    fftw \
+    fftw-devel \
+    atlas-devel \
+    atlas \
+    atlas-sse3
 
 # Variables de entorno
 ENV JAVA_HOME=/solutions/app/java \

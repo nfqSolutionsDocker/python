@@ -29,5 +29,7 @@ app:
   - "8080:8888"
  volumes:
   - <mydirectory>:/solutions/app
+  - <mydirectory>/pip:/solutions/app/pip
+  - <mydirectory>/apps/rpm:/solutions/app/rpm
  
 ```
