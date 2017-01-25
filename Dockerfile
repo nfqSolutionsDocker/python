@@ -16,7 +16,7 @@ RUN sudo yum install -y gcc wget python34 \
     atlas \
     atlas-sse3
 
-# Variables de entorno
+# Variables de entorno  #
 ENV JAVA_HOME=/solutions/app/java \
 	JAVA_TOOL_OPTIONS=-Dfile.encoding=UTF8 \
 	JAVA_VERSION=7u80 \
