@@ -3,7 +3,18 @@ FROM nfqsolutions/centos:7
 MAINTAINER solutions@nfq.com
 
 # Instalacion previa
-RUN sudo yum install -y gcc wget python34 python34-pip python34-devel libaio
+RUN sudo yum install -y epel-release
+RUN sudo yum install -y gcc wget python34 \
+    python34-pip \
+    python34-devel \
+    libaio \
+    blas_devel \
+    lapack-devel \
+    fftw \
+    fftw-devel \
+    atlas-devel \
+    atlas \
+    atlas-sse3
 
 # Variables de entorno
 ENV JAVA_HOME=/solutions/app/java \
@@ -21,10 +32,10 @@ RUN chmod 777 /solutions/python_initial.sh && \
 	chmod a+x /solutions/python_initial.sh && \
 	sed -i -e 's/\r$//' /solutions/python_initial.sh
 
-# Volumenes para el tomcat
+# Volumenes para el python
 VOLUME /solutions/app
 
-# Puerto de salida del tomcat
+# Puerto de salida del python
 EXPOSE 8888
 
 # Configuracion supervisor
