@@ -23,9 +23,14 @@ for pip_package in $(echo ${PIP_PACKAGES} | sed 's/,/\n/g'); do
 	pip3.4 install ${pip_package}
 done
 
-echo Instalando paquetes locales en PIP
+echo Instalando paquetes locales en PIP (.zip)
 for pip_zip in ${PIP_PATH}/*.zip; do
 	pip3.4 install ${pip_zip}
+done
+
+echo Instalando paquetes locales en PIP (.tar.gz)
+for pip_targz in ${PIP_PATH}/*.tar.gz; do
+	pip3.4 install ${pip_targz}
 done
 
 echo Ejecutando ficheros python
