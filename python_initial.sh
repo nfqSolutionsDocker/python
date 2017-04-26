@@ -28,7 +28,7 @@ done
 
 ls -l ${PIP_PATH}/*.zip > /dev/null 2>&1
 if [ "$?" = "0" ]; then
-echo Instalando paquetes locales en PIP (.zip)
+echo Instalando paquetes locales en PIP .zip
 for pip_zip in ${PIP_PATH}/*.zip; do
 	pip3.4 install ${pip_zip}
 done
@@ -36,7 +36,7 @@ fi
 
 ls -l ${PIP_PATH}/*.tar.gz > /dev/null 2>&1
 if [ "$?" = "0" ]; then
-echo Instalando paquetes locales en PIP (.tar.gz)
+echo Instalando paquetes locales en PIP .tar.gz
 for pip_targz in ${PIP_PATH}/*.tar.gz; do
 	pip3.4 install ${pip_targz}
 done
