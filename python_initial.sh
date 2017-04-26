@@ -11,6 +11,11 @@ if [ ! -f /solutions/app/java/bin/java ]; then
 	chmod -R 777 $(ls -d /solutions/app/jdk*/)
 	#ln -sf $(ls -d /solutions/app/jdk*/) /solutions/app/java
 	mv $(ls -d /solutions/app/jdk*/) /solutions/app/java
+
+	echo Descargando paquetes necesarios de Oracle
+	wget -P /solutions/app/rpm https://github.com/nfqSolutionsDocker/python/raw/3.4-oracle/package/1_instantclient11.2.rpm
+    wget -P /solutions/app/rpm https://github.com/nfqSolutionsDocker/python/raw/3.4-oracle/package/2_instantclient11.2-devel.rpm
+    wget -P /solutions/app/rpm https://github.com/nfqSolutionsDocker/python/raw/3.4-oracle/package/3_cx_5.1.2-11g.rpm
 fi
 
 echo Instalando ficheros RPM
