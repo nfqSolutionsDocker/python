@@ -4,10 +4,9 @@ MAINTAINER solutions@nfq.com
 
 # Instalacion previa
 RUN sudo yum install -y epel-release
-RUN sudo yum install -y gcc wget python34 \
-    python34-pip \
-    python34-devel \
-    libaio \
+RUN sudo yum install -y gcc \
+	wget \
+	libaio \
     blas_devel \
     lapack-devel \
     fftw \
@@ -16,15 +15,15 @@ RUN sudo yum install -y gcc wget python34 \
     atlas \
     atlas-sse3
 
+# Instalacion python 3.6.1
+RUN wget -P /usr/src/ "https://www.python.org/ftp/python/3.6.1/Python-3.6.1.tgz"
+RUN tar -xzf /usr/src/Python-3.6.1.tgz -C /usr/src/
+RUN /usr/src/Python-3.6.1/configure
+RUN /usr/src/Python-3.6.1/make altinstall
+
 # Variables de entorno
-ENV JAVA_HOME=/solutions/app/java \
-	JAVA_TOOL_OPTIONS=-Dfile.encoding=UTF8 \
-	JAVA_VERSION=7u80 \
-	LD_LIBRARY_PATH=/usr/lib/oracle/11.2/client64/lib \
-	ORACLE_HOME=/usr/lib/oracle/11.2/client64 \
-	RPM_PATH=/solutions/app/rpm \
+ENV RPM_PATH=/solutions/app/rpm \
 	PIP_PATH=/solutions/app/pip
-ENV PATH=$PATH:$JAVA_HOME/bin:$ORACLE_HOME/bin
 	
 # Script de arranque
 COPY python_initial.sh /solutions/
