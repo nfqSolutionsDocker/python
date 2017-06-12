@@ -13,7 +13,8 @@ RUN sudo yum install -y gcc \
     fftw-devel \
     atlas-devel \
     atlas \
-    atlas-sse3
+    atlas-sse3 \
+    make
 
 # Instalacion python 3.6.1
 RUN wget -P /usr/src/ "https://www.python.org/ftp/python/3.6.1/Python-3.6.1.tgz"
