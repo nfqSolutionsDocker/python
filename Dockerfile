@@ -8,19 +8,26 @@ RUN sudo yum install -y gcc \
 	wget \
 	libaio \
     blas_devel \
-    lapack-devel \
     fftw \
     fftw-devel \
     atlas-devel \
     atlas \
     atlas-sse3 \
-    make
+    make \
+    mysql56 \
+    mysql56-devel \
+    lapack \
+    lapack-devel \
+    lapack-static \
+    zlib \
+    zlib-devel
 
 # Instalacion python 3.6.1
 RUN wget -P /usr/src/ "https://www.python.org/ftp/python/3.6.1/Python-3.6.1.tgz"
 RUN tar -xzf /usr/src/Python-3.6.1.tgz -C /usr/src/
 RUN /usr/src/Python-3.6.1/configure
-RUN /usr/src/Python-3.6.1/make altinstall
+RUN ls -l /usr/src/Python-3.6.1/
+RUN make install -I /usr/src/Python-3.6.1/
 
 # Variables de entorno
 ENV RPM_PATH=/solutions/app/rpm \
