@@ -34,10 +34,10 @@ ENV RPM_PATH=/solutions/app/rpm \
 	PIP_PATH=/solutions/app/pip
 	
 # Script de arranque
-COPY python_initial.sh /solutions/
-RUN chmod 777 /solutions/python_initial.sh && \
-	chmod a+x /solutions/python_initial.sh && \
-	sed -i -e 's/\r$//' /solutions/python_initial.sh
+COPY initial.py /solutions/
+RUN chmod 777 /solutions/initial.py && \
+	chmod a+x /solutions/initial.py && \
+	sed -i -e 's/\r$//' /solutions/initial.py
 
 # Volumenes para el python
 VOLUME /solutions/app
