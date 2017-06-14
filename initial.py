@@ -12,7 +12,7 @@ PYTHON_FILES = os.getenv('PYTHON_FILES')
 for file in os.listdir(RPM_PATH):
     if file.endswith('.rpm'):
         print('Instalando ficheros RPM')
-        os.system('rpm -Uvh {}'.format(file))
+        os.system('rpm -Uvh {}/{}'.format(RPM_PATH,file))
 
 for package in PIP_PACKAGES.split(','):
     print('Instalando paquetes oficiales en PIP')
@@ -21,12 +21,12 @@ for package in PIP_PACKAGES.split(','):
 for file in os.listdir(PIP_PATH):
     if file.endswith('.zip'):
         print('Instalando paquetes locales en PIP .zip')
-        os.system('pip3.6 install {}'.format(file))
+        os.system('pip3.6 install {}/{}'.format(PIP_PATH,file))
 
 for file in os.listdir(PIP_PATH):
     if file.endswith('.tar.gz'):
         print('Instalando paquetes locales en PIP .tar.gz')
-        os.system('pip3.6 install {}'.format(file))
+        os.system('pip3.6 install {}/{}'.format(PIP_PATH,file))
 
 for file in PYTHON_FILES.split(','):
     print('Ejecutando ficheros python')
