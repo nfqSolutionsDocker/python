@@ -25,7 +25,7 @@ RUN sudo yum install -y gcc \
     openssl-devel
 
 # Instalacion sqlite3
-RUN wget -P /usr/src/ "https://www.sqlite.org/2017/sqlite-autoconf-3170000.tar.gz --no-check-certificate"
+RUN wget -P /usr/src/ "https://www.sqlite.org/2017/sqlite-autoconf-3170000.tar.gz" --no-check-certificate
 RUN tar -zxvf /usr/src/sqlite-autoconf-3170000.tar.gz - C /usr/src/
 RUN /usr/src/sqlite-autoconf-3170000/configure --prefix=/usr/local/sqlite3 --disable-static --enable-fts5 --enable-json1 CFLAGS="-g -O2 -DSQLITE_ENABLE_FTS3=1 -DSQLITE_ENABLE_FTS4=1 -DSQLITE_ENABLE_RTREE=1"
 
