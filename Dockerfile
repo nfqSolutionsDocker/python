@@ -39,7 +39,7 @@ ENV RPM_PATH=/solutions/app/rpm \
 COPY initial.py /solutions/
 RUN chmod 777 /solutions/initial.py && \
 	chmod a+x /solutions/initial.py && \
-	# sed -i -e 's/\r$//' /solutions/initial.py
+	sed -i -e 's/\r$//' /solutions/initial.py
 
 # Volumenes para el python
 VOLUME /solutions/app
