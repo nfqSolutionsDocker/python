@@ -22,9 +22,9 @@ for file in os.listdir(RPM_PATH):
 #done
 #fi
 
-for file in os.listdir(PIP_PACKAGES):
+for package in PIP_PACKAGES.split(','):
     print('Instalando paquetes oficiales en PIP')
-    os.system('pip3.6 install {}'.format(file))
+    os.system('pip3.6 install {}'.format(package))
 
 #print ('Instalando paquetes oficiales en PIP')
 #for pip_package in $(echo ${PIP_PACKAGES} | sed 's/,/\n/g'); do
@@ -57,7 +57,7 @@ for file in os.listdir(PIP_PATH):
 #done
 #fi
 
-for file in os.listdir(PYTHON_FILES):
+for file in PYTHON_FILES.split(','):
     print('Ejecutando ficheros python')
     os.system('python3.6 {} &'.format(file))
 
