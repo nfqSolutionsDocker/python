@@ -23,14 +23,16 @@ RUN sudo yum install -y gcc \
     zlib-devel \
     openssl \
     openssl-devel
-    
 
+# Instalacion sqlite3
+RUN wget -P /usr/src/ "https://www.sqlite.org/2017/sqlite-autoconf-3170000.tar.gz --no-check-certificate"
+RUN tar -zxvf /usr/src/sqlite-autoconf-3170000.tar.gz - C /usr/src/
+RUN /usr/src/sqlite-autoconf-3170000/configure --prefix=/usr/local/sqlite3 --disable-static --enable-fts5 --enable-json1 CFLAGS="-g -O2 -DSQLITE_ENABLE_FTS3=1 -DSQLITE_ENABLE_FTS4=1 -DSQLITE_ENABLE_RTREE=1"
 
 # Instalacion python 3.6.1
 RUN wget -P /usr/src/ "https://www.python.org/ftp/python/3.6.1/Python-3.6.1.tgz"
 RUN tar -xzf /usr/src/Python-3.6.1.tgz -C /usr/src/
-RUN /usr/src/Python-3.6.1/configure
-RUN ls -l /usr/src/Python-3.6.1/
+RUN /usr/src/Python-3.6.1/configure --prefix=/usr/local/python3.6 LDFLAGS="-L/usr/local/sqlite3/lib" CPPFLAGS="-I /usr/local/sqlite3/include"
 RUN make install -I /usr/src/Python-3.6.1/
 
 # Variables de entorno
