@@ -25,11 +25,10 @@ RUN sudo yum install -y gcc \
     openssl-devel
 
 # Instalacion python 3.6.1
-RUN wget -P /usr/src/ "https://www.python.org/ftp/python/3.6.1/Python-3.6.1.tgz"
-RUN tar -xzf /usr/src/Python-3.6.1.tgz -C /usr/src/
-RUN /usr/src/Python-3.6.1/configure
-RUN ls -l /usr/src/Python-3.6.1/
-RUN make install -I /usr/src/Python-3.6.1/
+RUN wget -P /usr/src/ "https://www.python.org/ftp/python/3.6.1/Python-3.6.1.tgz" && \
+	tar -xzf /usr/src/Python-3.6.1.tgz -C /usr/src/ && \
+	/usr/src/Python-3.6.1/configure && \
+	make install -I /usr/src/Python-3.6.1/
 
 # Variables de entorno
 ENV RPM_PATH=/solutions/app/rpm \

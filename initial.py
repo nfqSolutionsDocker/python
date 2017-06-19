@@ -8,64 +8,34 @@ RPM_PATH = os.getenv('RPM_PATH')
 PIP_PACKAGES = os.getenv('PIP_PACKAGES')
 PIP_PATH = os.getenv('PIP_PATH')
 PYTHON_FILES = os.getenv('PYTHON_FILES')
+SERVICES = os.getenv('SERVICES')
 
 for file in os.listdir(RPM_PATH):
     if file.endswith('.rpm'):
-        print('Instalando ficheros RPM')
-        os.system('rpm -Uvh {}'.format(file))
+        print('Instalando ficheros RPM: {}'.format(file))
+        os.system('rpm -Uvh {}/{}'.format(RPM_PATH,file))
 
-#ls -l ${RPM_PATH}/*.rpm > /dev/null 2>&1
-#if [ "$?" = "0" ]; then
-#print('Instalando ficheros RPM')
-#for rpm_file in ${RPM_PATH}/*.rpm; do
-#    rpm -Uvh ${rpm_file}
-#done
-#fi
-
-for file in os.listdir(PIP_PACKAGES):
-    print('Instalando paquetes oficiales en PIP')
-    os.system('pip3.6 install {}'.format(file))
-
-#print ('Instalando paquetes oficiales en PIP')
-#for pip_package in $(echo ${PIP_PACKAGES} | sed 's/,/\n/g'); do
-#    pip3.4 install ${pip_package}
-#done
+for package in PIP_PACKAGES.split(','):
+    print('Instalando paquetes oficiales en PIP: {}'.format(package))
+    os.system('pip3.6 install {}'.format(package))
 
 for file in os.listdir(PIP_PATH):
     if file.endswith('.zip'):
-        print('Instalando paquetes locales en PIP .zip')
-        os.system('pip3.6 install {}'.format(file))
-
-#ls -l ${PIP_PATH}/*.zip > /dev/null 2>&1
-#if [ "$?" = "0" ]; then
-#print('Instalando paquetes locales en PIP .zip')
-#for pip_zip in ${PIP_PATH}/*.zip; do
-#    pip3.4 install ${pip_zip}
-#done
-#fi
+        print('Instalando paquetes locales en PIP .zip: {}'.format(file))
+        os.system('pip3.6 install {}/{}'.format(PIP_PATH,file))
 
 for file in os.listdir(PIP_PATH):
     if file.endswith('.tar.gz'):
-        print('Instalando paquetes locales en PIP .tar.gz')
-        os.system('pip3.6 install {}'.format(file))
+        print('Instalando paquetes locales en PIP .tar.gz: {}'.format(file))
+        os.system('pip3.6 install {}/{}'.format(PIP_PATH,file))
 
-#ls -l ${PIP_PATH}/*.tar.gz > /dev/null 2>&1
-#if [ "$?" = "0" ]; then
-#print('Instalando paquetes locales en PIP .tar.gz')
-#for pip_targz in ${PIP_PATH}/*.tar.gz; do
-#    pip3.4 install ${pip_targz}
-#done
-#fi
-
-for file in os.listdir(PYTHON_FILES):
-    print('Ejecutando ficheros python')
+for file in PYTHON_FILES.split(','):
+    print('Ejecutando ficheros python: {}'.format(file))
     os.system('python3.6 {} &'.format(file))
 
-#print('Ejecutando ficheros python')
-#for python_file in $(echo ${PYTHON_FILES} | sed 's/,/\n/g'); do
-#    python3 ${python_file} &
-#done
+for file in SERVICES.split(','):
+    print('Ejecutando service: {}'.format(file))
+    os.system('{} &'.format(file))
 
 print('Ejecutando bash ...')
 os.system('/bin/bash')
-#/bin/bash
