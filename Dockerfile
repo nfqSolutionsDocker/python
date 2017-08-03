@@ -14,15 +14,13 @@ RUN sudo yum install -y gcc \
     atlas \
     atlas-sse3 \
     make \
-    mysql56 \
-    mysql56-devel \
+    mysql \
+    mysql-devel \
     lapack \
     lapack-devel \
     lapack-static \
     zlib \
-    zlib-devel \
-    openssl \
-    openssl-devel
+    zlib-devel
 
 # Instalacion python 3.6.1
 RUN wget -P /usr/src/ "https://www.python.org/ftp/python/3.6.1/Python-3.6.1.tgz" && \
@@ -43,8 +41,6 @@ RUN chmod 777 /solutions/initial.py && \
 # Volumenes para el python
 VOLUME /solutions/app
 
-# Puerto de salida del python
-EXPOSE 8888
 
 # Configuracion supervisor
 COPY supervisord.conf /etc/supervisord.conf
