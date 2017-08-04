@@ -12,7 +12,9 @@ SERVICES = os.getenv('SERVICES')
 
 # FALSE if RPM_PATH is '' or None
 if bool(RPM_PATH):
-    for file in os.listdir(RPM_PATH):
+    rpm_file_list = os.listdir(RPM_PATH)
+    rpm_file_list.sort()
+    for file in rpm_file_list:
         if file.endswith('.rpm'):
             print('\033[1;32mInstalando ficheros RPM: {}\033[0m'.format(file))
             os.system('rpm -Uvh {}/{}'.format(RPM_PATH,file))
@@ -25,7 +27,9 @@ if bool(PIP_PACKAGES):
 
 # FALSE if PIP_PATH is '' or None
 if bool(PIP_PATH):
-    for file in os.listdir(PIP_PATH):
+    pip_file_list = os.listdir(PIP_PATH)
+    pip_file_list.sort()
+    for file in pip_file_list:
         if file.endswith('.zip'):
             print('\033[1;32mInstalando paquetes locales en PIP .zip: {}\033[0m'.format(file))
             os.system('pip3.6 install {}/{}'.format(PIP_PATH, file))
