@@ -3,26 +3,27 @@ FROM nfqsolutions/centos:7
 MAINTAINER solutions@nfq.com
 
 # Instalacion previa
-RUN sudo yum install -y epel-release
-RUN sudo yum install -y gcc \
-	wget \
-	libaio \
-    blas_devel \
-    fftw \
-    fftw-devel \
-    atlas-devel \
-    atlas \
-    atlas-sse3 \
-    make \
-    mysql56 \
-    mysql56-devel \
-    lapack \
-    lapack-devel \
-    lapack-static \
-    zlib \
-    zlib-devel \
-    openssl \
-    openssl-devel \
+#RUN sudo yum install -y epel-release
+RUN sudo yum install -y \
+#    gcc \
+#	 wget \
+#	 libaio \
+#    blas_devel \
+#    fftw \
+#    fftw-devel \
+#    atlas-devel \
+#    atlas \
+#    atlas-sse3 \
+#    make \
+#    mysql56 \
+#    mysql56-devel \
+#    lapack \
+#    lapack-devel \
+#    lapack-static \
+#    zlib \
+#    zlib-devel \
+#    openssl \
+#    openssl-devel \
     sqlite-devel \
     https://centos7.iuscommunity.org/ius-release.rpm
 
