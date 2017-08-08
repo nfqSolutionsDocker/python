@@ -23,13 +23,13 @@ RUN sudo yum install -y gcc \
     zlib-devel \
     openssl \
     openssl-devel \
-    sqlite-devel
+    sqlite-devel \
+    https://centos7.iuscommunity.org/ius-release.rpm
 
 # Instalacion python 3.6.1
-RUN wget -P /usr/src/ "https://www.python.org/ftp/python/3.6.1/Python-3.6.1.tgz" && \
-	tar -xzf /usr/src/Python-3.6.1.tgz -C /usr/src/ && \
-	/usr/src/Python-3.6.1/configure && \
-	make install -I /usr/src/Python-3.6.1/
+RUN sudo yum install -y python36u \
+    python36u-pip \
+    python36u-devel
 
 # Variables de entorno
 ENV RPM_PATH=/solutions/app/rpm \
