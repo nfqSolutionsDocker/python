@@ -23,7 +23,7 @@ RUN sudo yum install -y gcc \
     zlib-devel \
     sqlite-devel
 
-# Instalacion python 3.6.1
+# Instalacion python 3.6
 RUN wget -P /usr/src/ "https://www.python.org/ftp/python/3.6.1/Python-3.6.1.tgz" && \
 	tar -xzf /usr/src/Python-3.6.1.tgz -C /usr/src/ && \
 	/usr/src/Python-3.6.1/configure && \
