@@ -20,7 +20,8 @@ RUN sudo yum install -y gcc \
     lapack-devel \
     lapack-static \
     zlib \
-    zlib-devel
+    zlib-devel \
+    sqlite-devel
 
 # Instalacion python 3.6.1
 RUN wget -P /usr/src/ "https://www.python.org/ftp/python/3.6.1/Python-3.6.1.tgz" && \

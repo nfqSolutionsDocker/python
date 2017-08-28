@@ -25,6 +25,7 @@ app:
   - PACKAGES=
   - PIP_PACKAGES=
   - PYTHON_FILES=
+  - SERVICES=
  ports:
   - "8080:8888"
  volumes:
