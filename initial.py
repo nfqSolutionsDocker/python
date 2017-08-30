@@ -1,6 +1,7 @@
 #!/usr/local/bin/python3
 
 import os
+import time
 
 os.system('sh /solutions/install_packages.sh')
 
@@ -49,6 +50,7 @@ if bool(SERVICES):
     for file in SERVICES.split(','):
         print('\033[1;32mEjecutando service: {}\033[0m'.format(file))
         os.system('{} &'.format(file))
+        time.sleep(5)
 
 print('\033[1;32mEjecutando bash ...\033[0m')
 os.system('/bin/bash')
