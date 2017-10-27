@@ -24,7 +24,7 @@ if bool(RPM_PATH):
 if bool(PIP_PACKAGES):
     for package in PIP_PACKAGES.split(','):
         print('\033[1;32mInstalando paquetes oficiales en PIP: {}\033[0m'.format(package))
-        os.system('pip3.6 install {}'.format(package))
+        os.system('pip install {}'.format(package))
 
 # FALSE if PIP_PATH is '' or None
 if bool(PIP_PATH):
@@ -33,17 +33,17 @@ if bool(PIP_PATH):
     for file in pip_file_list:
         if file.endswith('.zip'):
             print('\033[1;32mInstalando paquetes locales en PIP .zip: {}\033[0m'.format(file))
-            os.system('pip3.6 install {}/{}'.format(PIP_PATH, file))
+            os.system('pip install {}/{}'.format(PIP_PATH, file))
 
         if file.endswith('.tar.gz'):
             print('\033[1;32mInstalando paquetes locales en PIP .tar.gz: {}\033[0m'.format(file))
-            os.system('pip3.6 install {}/{}'.format(PIP_PATH, file))
+            os.system('pip install {}/{}'.format(PIP_PATH, file))
 
 # FALSE if PYTHON_FILES is '' or None
 if bool(PYTHON_FILES):
     for file in PYTHON_FILES.split(','):
         print('\033[1;32mEjecutando ficheros python: {}\033[0m'.format(file))
-        os.system('python3.6 {} &'.format(file))
+        os.system('python {} &'.format(file))
 
 # FALSE if SERVICES is '' or None
 if bool(SERVICES):
