@@ -1,8 +1,7 @@
-### python
+### python CONTENEDOR PARA PALM
 
 This container has the following characteristics:
-- Container nfqsolutions/centos:7.
-- Java 7u80 installed.
+
 - Python 3.4 installed.
 - Pip 3.4 installed.
 - Volumen is /solutions/app.
